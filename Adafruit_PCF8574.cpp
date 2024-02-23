@@ -47,15 +47,8 @@ Adafruit_PCF8574::Adafruit_PCF8574(void) {}
  *    @return True if initialization was successful, otherwise false.
  */
 bool Adafruit_PCF8574::begin(uint8_t i2c_address, TwoWire *wire) {
-  delete (i2c_dev);
-
   i2c_dev = new Adafruit_I2CDevice(i2c_address, wire);
-
-  if (!i2c_dev->begin()) {
-    return false;
-  }
-
-  return true;
+  return i2c_dev->begin();
 }
 
 /*!
